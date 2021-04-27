@@ -9,13 +9,36 @@ class TicketControl{
         let data = require('../data/data.json')
 
         if(data.hoy === this.hoy){
-
+            this.ultimo = data.ultimo
         }else{
             this.reiniciarConteo()
         }
     }
 
+    siguiente(){
+
+        this.ultimo += 1
+        this.grabarArchivo()
+
+
+        return `Ticket ${this.ultimo}`
+    }
+
+    getUltimoTicket(){
+        return `Ticket ${this.ultimo}`
+    }
+
     reiniciarConteo(){
+        
+        this.ultimo = 0
+
+        console.log('Sistema iniciado')
+        this.grabarArchivo()
+
+    }
+
+    grabarArchivo(){
+
         let jsonData = {
             ultimo: this.ultimo,
             hoy: this.hoy
@@ -25,7 +48,6 @@ class TicketControl{
 
         fs.writeFileSync('./server/data/data.json', jsonDataString)
 
-        console.log("Inicio del sistema")
     }
 
 }
