@@ -14,7 +14,13 @@ var lblTickets = [lblTicket1, lblTicket2, lblTicket3, lblTicket4]
 var lblEscritorios = [lblEscritorio1, lblEscritorio2, lblEscritorio3, lblEscritorio4]
 
 socket.on('estadoActual', function(data){
-    console.log(data)
+    actualizaHtml(data.ultimos4)
+})
+
+socket.on('ultimos4', function(data){
+    var audio = new Audio('audio/new-ticket.mp3')
+    audio.play()
+
     actualizaHtml(data.ultimos4)
 })
 
