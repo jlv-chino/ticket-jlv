@@ -7,3 +7,6 @@ Recuerden que deben de reconstruir los módulos de node con el comando
 ```
 npm install
 ```
+
+Enlace para probar la App
+https://tickets-jlv.herokuapp.com
